@@ -1,0 +1,359 @@
+{
+ "today": "2026-10-20",
+ "exam": "pmp",
+ "traps": {
+  "taxonomy": [
+   {
+    "id": "kw",
+    "name": "Signalwort",
+    "rule": "r"
+   },
+   {
+    "id": "act",
+    "name": "Voreiliges Handeln",
+    "rule": "r"
+   },
+   {
+    "id": "esc",
+    "name": "Eskalation",
+    "rule": "r"
+   },
+   {
+    "id": "appr",
+    "name": "Agil/Predictive",
+    "rule": "r"
+   },
+   {
+    "id": "term",
+    "name": "Begriffe",
+    "rule": "r"
+   },
+   {
+    "id": "calc",
+    "name": "Rechnen",
+    "rule": "r"
+   },
+   {
+    "id": "multi",
+    "name": "Mehrfachauswahl",
+    "rule": "r"
+   },
+   {
+    "id": "role",
+    "name": "Rollen",
+    "rule": "r"
+   }
+  ],
+  "items": {
+   "a": [
+    "act"
+   ],
+   "b": [
+    "act",
+    "esc"
+   ],
+   "c": [
+    "esc"
+   ],
+   "h": [
+    "role"
+   ]
+  },
+  "lures": {
+   "a": {
+    "2": "act",
+    "1": "esc"
+   }
+  }
+ },
+ "items": [
+  {
+   "id": "a",
+   "exam": "pmp"
+  },
+  {
+   "id": "b",
+   "exam": "pmp"
+  },
+  {
+   "id": "c",
+   "exam": "pmp"
+  }
+ ],
+ "events": [
+  {
+   "kind": "attempt",
+   "exam": "pmp",
+   "ref": "a",
+   "date": "2026-10-20",
+   "value": 1,
+   "meta": {
+    "conf": "sure"
+   }
+  },
+  {
+   "kind": "attempt",
+   "exam": "pmp",
+   "ref": "a",
+   "date": "2026-10-19",
+   "value": 1,
+   "meta": {
+    "conf": "sure"
+   }
+  },
+  {
+   "kind": "attempt",
+   "exam": "pmp",
+   "ref": "a",
+   "date": "2026-10-19",
+   "value": 0,
+   "meta": {
+    "conf": "sure",
+    "pick": 2
+   }
+  },
+  {
+   "kind": "attempt",
+   "exam": "pmp",
+   "ref": "a",
+   "date": "2026-10-18",
+   "value": 1,
+   "meta": {
+    "conf": "sure"
+   }
+  },
+  {
+   "kind": "attempt",
+   "exam": "pmp",
+   "ref": "a",
+   "date": "2026-10-18",
+   "value": 0,
+   "meta": {
+    "conf": "sure",
+    "pick": 1
+   }
+  },
+  {
+   "kind": "attempt",
+   "exam": "pmp",
+   "ref": "a",
+   "date": "2026-10-17",
+   "value": 1,
+   "meta": {
+    "conf": "sure"
+   }
+  },
+  {
+   "kind": "attempt",
+   "exam": "pmp",
+   "ref": "a",
+   "date": "2026-10-13",
+   "value": 0,
+   "meta": {
+    "conf": "sure"
+   }
+  },
+  {
+   "kind": "attempt",
+   "exam": "pmp",
+   "ref": "a",
+   "date": "2026-10-12",
+   "value": 1,
+   "meta": {
+    "conf": "sure"
+   }
+  },
+  {
+   "kind": "attempt",
+   "exam": "pmp",
+   "ref": "a",
+   "date": "2026-10-11",
+   "value": 0,
+   "meta": {
+    "conf": "sure"
+   }
+  },
+  {
+   "kind": "attempt",
+   "exam": "pmp",
+   "ref": "a",
+   "date": "2026-10-10",
+   "value": 0,
+   "meta": {
+    "conf": "sure"
+   }
+  },
+  {
+   "kind": "attempt",
+   "exam": "pmp",
+   "ref": "a",
+   "date": "2026-10-10",
+   "value": 1,
+   "meta": {
+    "conf": "sure"
+   }
+  },
+  {
+   "kind": "attempt",
+   "exam": "pmp",
+   "ref": "b",
+   "date": "2026-10-20",
+   "value": 1,
+   "meta": {
+    "conf": "sure"
+   }
+  },
+  {
+   "kind": "attempt",
+   "exam": "pmp",
+   "ref": "b",
+   "date": "2026-10-19",
+   "value": 1,
+   "meta": {
+    "conf": "guess"
+   }
+  },
+  {
+   "kind": "attempt",
+   "exam": "pmp",
+   "ref": "b",
+   "date": "2026-10-19",
+   "value": 1,
+   "meta": {
+    "conf": "sure"
+   }
+  },
+  {
+   "kind": "attempt",
+   "exam": "pmp",
+   "ref": "b",
+   "date": "2026-10-18",
+   "value": 0,
+   "meta": {
+    "conf": "sure"
+   }
+  },
+  {
+   "kind": "attempt",
+   "exam": "pmp",
+   "ref": "b",
+   "date": "2026-10-17",
+   "value": 1,
+   "meta": {
+    "conf": "unsure"
+   }
+  },
+  {
+   "kind": "attempt",
+   "exam": "pmp",
+   "ref": "c",
+   "date": "2026-10-15",
+   "value": 1,
+   "meta": {
+    "conf": "sure"
+   }
+  },
+  {
+   "kind": "attempt",
+   "exam": "pmp",
+   "ref": "c",
+   "date": "2026-10-14",
+   "value": 0,
+   "meta": {
+    "conf": "sure"
+   }
+  },
+  {
+   "kind": "attempt",
+   "exam": "pmp",
+   "ref": "h",
+   "date": "2026-10-20",
+   "value": 0,
+   "meta": {
+    "conf": "sure"
+   }
+  },
+  {
+   "kind": "attempt",
+   "exam": "itil5",
+   "ref": "a",
+   "date": "2026-10-20",
+   "value": 0,
+   "meta": {}
+  }
+ ],
+ "expected": {
+  "kw": {
+   "n": 0,
+   "quote": null,
+   "sure_wrong": 0,
+   "trend": null,
+   "status": "zu wenig Daten",
+   "gap": 0.0,
+   "lure_share": null
+  },
+  "act": {
+   "n": 16,
+   "quote": 0.6225,
+   "sure_wrong": 6,
+   "trend": 0.2818,
+   "status": "ok",
+   "gap": 4.7921,
+   "lure_share": 0.5
+  },
+  "esc": {
+   "n": 7,
+   "quote": 0.6625,
+   "sure_wrong": 2,
+   "trend": null,
+   "status": "ok",
+   "gap": 1.9968,
+   "lure_share": null
+  },
+  "appr": {
+   "n": 0,
+   "quote": null,
+   "sure_wrong": 0,
+   "trend": null,
+   "status": "zu wenig Daten",
+   "gap": 0.0,
+   "lure_share": null
+  },
+  "term": {
+   "n": 0,
+   "quote": null,
+   "sure_wrong": 0,
+   "trend": null,
+   "status": "zu wenig Daten",
+   "gap": 0.0,
+   "lure_share": null
+  },
+  "calc": {
+   "n": 0,
+   "quote": null,
+   "sure_wrong": 0,
+   "trend": null,
+   "status": "zu wenig Daten",
+   "gap": 0.0,
+   "lure_share": null
+  },
+  "multi": {
+   "n": 0,
+   "quote": null,
+   "sure_wrong": 0,
+   "trend": null,
+   "status": "zu wenig Daten",
+   "gap": 0.0,
+   "lure_share": null
+  },
+  "role": {
+   "n": 0,
+   "quote": null,
+   "sure_wrong": 0,
+   "trend": null,
+   "status": "zu wenig Daten",
+   "gap": 0.0,
+   "lure_share": null
+  }
+ }
+}

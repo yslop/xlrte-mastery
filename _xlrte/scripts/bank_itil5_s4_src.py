@@ -1,0 +1,231 @@
+"""XLRTE Schattenprüfung S4 — 40 ungesehene, selbst formulierte Fragen, formnah an den offiziellen Musterprüfungen.
+Anders als S1–S3 (lange Szenarien, längere Optionen) folgt S4 dem gemessenen Formprofil von SP1/SP2: kurze Stämme
+(Ø ~12–16 Wörter), kurze Optionen (Ø ~6–9 Wörter), viele Geschwister-Distraktoren (gleiche Begriffsfamilie: Dimensionen,
+Lebenszyklusaktivitäten, Grundprinzipien, Practice-Aspekte, Incident/Problem/Fehler/Known Error …). Die Schwierigkeit liegt in der
+Unterscheidung ähnlicher Begriffe, nicht in der Textlänge.
+Blueprint: Kat 1 (12), Kat 2 (4), Kat 3 (4), Kat 4 (16), Kat 5 (2), Kat 6 (1), Kat 7 (1). Bloom: 24 BL2, 16 BL1.
+Keine Texte aus Buch oder Musterprüfungen; Sachaussagen stammen aus Syllabus/Glossar/Bank der Projektdaten.
+Format: (lo, bl, q, [key, d1, d2, d3], why) – Schlüssel im Source immer an Index 0, wird deterministisch auf 10×A/B/C/D verteilt.
+Kompilieren: python3 scripts/bank_itil5_s4_src.py  →  data/items_itil5_s4.json
+"""
+import json, os, random
+
+Q = [
+    # ---- Kategorie 1 (12): 5 BL1, 7 BL2 -------------------------------------------------------------------
+    ("1.1.7", 1, "Welcher Aspekt beschreibt die Zusicherung, dass ein Service die vereinbarten Anforderungen erfüllt?",
+     ["Warranty", "Utility", "User Experience", "Nachhaltigkeit"],
+     "Warranty = Zusicherung der vereinbarten Anforderungen (Verfügbarkeit, Kapazität, Kontinuität, Sicherheit). Utility = Funktionalität, UX = Interaktion der Anwender, Nachhaltigkeit = ökologische/soziale Wirkung."),
+    ("1.2.1", 1, "Was ist ein Serviceangebot?",
+     ["Eine formale Beschreibung von Services, zugeschnitten auf eine Zielgruppe",
+      "Eine dokumentierte Vereinbarung über Service Level zwischen Provider und Kunde",
+      "Eine Reihe von Messgrößen für die erwartete Servicequalität",
+      "Die Summe aller Aktivitäten in einer Servicebeziehung"],
+     "Serviceangebot = formale Beschreibung von Services für eine Zielgruppe. Die Optionen 2–4 beschreiben SLA, Service Level und Service Journey."),
+    ("1.3.3", 1, "Was ist ein Ergebnis (Outcome)?",
+     ["Ein Resultat für einen Stakeholder, das durch Outputs ermöglicht wird",
+      "Ein greifbarer oder immaterieller Liefergegenstand einer Aktivität",
+      "Der Geldbetrag, der für eine Aktivität ausgegeben wurde",
+      "Ein mögliches Event, das zu Schaden oder Verlust führen könnte"],
+     "Outcome = Resultat für einen Stakeholder, ermöglicht durch Outputs. Option 2 = Output, Option 3 = Kosten, Option 4 = Risiko."),
+    ("1.4.4", 1, "Welche Rolle genehmigt das Budget für die Nutzung eines Services?",
+     ["Sponsor", "Kunde", "Anwender", "Service Provider"],
+     "Der Sponsor autorisiert das Budget. Der Kunde definiert Anforderungen und trägt Verantwortung für Ergebnisse, der Anwender nutzt den Service; alle drei sind Rollen auf Konsumentenseite."),
+    ("1.4.6", 1, "Was ist ein Service Level Agreement (SLA)?",
+     ["Eine dokumentierte Vereinbarung zwischen Provider und Kunde über Services und Service Level",
+      "Eine Reihe von Messgrößen, die die erwartete Servicequalität definieren",
+      "Eine formale Beschreibung von Services für eine bestimmte Zielgruppe",
+      "Ein Vertrag zwischen Provider und Lieferant über zugelieferte Komponenten"],
+     "Das SLA ist die dokumentierte Vereinbarung über Services und Service Level. Option 2 ist der Service Level selbst, Option 3 das Serviceangebot."),
+    ("1.2.4", 2, "Ein Provider liefert Server und überträgt dabei Eigentum samt Rechten und Pflichten. Welche Form der Serviceinteraktion ist das?",
+     ["Warentransfer", "Zugang zu Ressourcen", "Serviceaktionen", "Gemeinsame Wertschöpfung"],
+     "Warentransfer = Übertragung materieller Ressourcen mit Eigentum. Zugang zu Ressourcen = Nutzung ohne Eigentumsübergang; Serviceaktionen = Handlungen des Providers."),
+    ("1.3.4", 2, "Welche Aussage über Outputs und Ergebnisse ist WAHR?",
+     ["Ein Output kann geliefert werden, ohne dass das gewünschte Ergebnis eintritt",
+      "Jeder gelieferte Output führt zwangsläufig zum gewünschten Ergebnis",
+      "Ergebnisse sind immer greifbare Liefergegenstände einer Aktivität",
+      "Ergebnisse entstehen unabhängig von jeglichen Outputs"],
+     "Outputs ermöglichen Ergebnisse, garantieren sie aber nicht; Services können auch unbeabsichtigte Ergebnisse haben."),
+    ("1.3.6", 2, "Wann ist gemeinsame Wertschöpfung aus Sicht der Beteiligten erreicht?",
+     ["Wenn positive Ergebnisse die Kosten und Risiken überwiegen",
+      "Wenn alle vereinbarten Outputs fristgerecht geliefert wurden",
+      "Wenn die Kosten des Konsumenten auf null gesenkt wurden",
+      "Wenn sämtliche Risiken des Services beseitigt wurden"],
+     "Wert wird aus dem Zusammenspiel von Ergebnissen, Kosten und Risiken wahrgenommen. Outputs allein genügen nicht, Risiken lassen sich nie vollständig beseitigen."),
+    ("1.4.10", 2, "Welche Servicebeziehung beschreibt standardisierte Services mit minimaler Anpassung?",
+     ["Die einfache Servicebeziehung", "Die auf Kooperation basierende Servicebeziehung",
+      "Die auf Zusammenarbeit (Partnerschaft) basierende Servicebeziehung", "Die auf Wettbewerb basierende Servicebeziehung"],
+     "Einfach = standardisiertes Angebot, kaum Anpassung; Kooperation = Abstimmung in ausgewählten Bereichen; Zusammenarbeit/Partnerschaft = gemeinsame Ziele und geteilte Risiken."),
+    ("1.4.11", 2, "Ein Service bietet alle Funktionen, fällt aber häufig aus. Welcher Aspekt der Servicequalität ist PRIMÄR betroffen?",
+     ["Warranty", "Utility", "User Experience", "Nachhaltigkeit"],
+     "Die Funktionalität (Utility) stimmt; die Zusicherung von Verfügbarkeit und Zuverlässigkeit (Warranty) ist verletzt."),
+    ("1.1.3", 2, "Was stellen digitale Produkte bereit, und was beschreiben Serviceangebote?",
+     ["Produkte stellen Fähigkeiten bereit; Serviceangebote beschreiben den potenziellen Wert",
+      "Produkte beschreiben den potenziellen Wert; Serviceangebote stellen Fähigkeiten bereit",
+      "Beide stellen ausschließlich Fähigkeiten bereit",
+      "Beide beschreiben ausschließlich den potenziellen Wert"],
+     "Digitale Services basieren immer auf digitalen Produkten: Produkte = Fähigkeiten, Serviceangebote = potenzieller Wert für Kunden."),
+    ("1.3.5", 2, "Wie ermöglicht die Nutzung eines Services die gemeinsame Wertschöpfung?",
+     ["Der Konsument nutzt Ressourcen des Providers und bringt eigene Ressourcen und Handlungen ein",
+      "Der Provider liefert den Wert vollständig, und der Konsument nimmt ihn passiv ab",
+      "Der Konsument überträgt Betrieb und Risiken vollständig auf den Provider",
+      "Der Provider nutzt Ressourcen des Konsumenten, um den Service zu erbringen"],
+     "Wert entsteht gemeinsam: Provider stellt bereit, Konsument nutzt und bringt eigene Ressourcen und Handlungen ein."),
+
+    # ---- Kategorie 2 (4): 1 BL1, 3 BL2 ---------------------------------------------------------------------
+    ("2.1.1", 1, "Welche Option ist KEINE der vier Dimensionen?",
+     ["Governance und Practices", "Wertströme und Prozesse", "Partner und Lieferanten", "Organisationen und Menschen"],
+     "Die vier Dimensionen: Organisationen und Menschen, Partner und Lieferanten, Informationen und Technologie, Wertströme und Prozesse."),
+    ("2.1.2", 2, "Ein Team prüft Datenqualität, Schnittstellen und Werkzeuge eines neuen Services. Welche Dimension steht im Fokus?",
+     ["Informationen und Technologie", "Wertströme und Prozesse", "Organisationen und Menschen", "Partner und Lieferanten"],
+     "Informationen und Technologie behandelt Daten, Informationen und Technologien in Produkten, Services und Managementsystemen."),
+    ("2.2.2", 2, "Welche Dimension definiert Aktivitäten, Workflows, Steuerungen und Verfahren zur Zielerreichung?",
+     ["Wertströme und Prozesse", "Organisationen und Menschen", "Informationen und Technologie", "Partner und Lieferanten"],
+     "Wertströme und Prozesse = Workflows und Aktivitäten. Organisationen und Menschen = Rollen, Verantwortung, Autorität, Kommunikation."),
+    ("2.1.3", 2, "Warum betrachtet ITIL alle vier Dimensionen gemeinsam?",
+     ["Ein Ungleichgewicht zwischen den Dimensionen kann die Wertschöpfung gefährden",
+      "Jede Dimension ist nur in genau einer Lebenszyklusaktivität relevant",
+      "Die Dimensionen werden in fester Reihenfolge nacheinander abgearbeitet",
+      "Eine Dimension kann bei hoher Reife die übrigen vollständig ersetzen"],
+     "Der ganzheitliche Ansatz verlangt, alle vier Dimensionen ausgewogen zu berücksichtigen."),
+
+    # ---- Kategorie 3 (4): 3 BL1, 1 BL2 ---------------------------------------------------------------------
+    ("3.1.3", 2, "Welche Aussage über die Lebenszyklusaktivitäten ist WAHR?",
+     ["Sie sind weder sequenziell noch linear und können iterativ kombiniert werden",
+      "Sie werden für jedes Produkt in derselben Reihenfolge einmal durchlaufen",
+      "Sie sind jeweils genau einer Dimension fest zugeordnet",
+      "Sie beginnen mit Build und enden mit Support"],
+     "Die Aktivitäten sind nicht sequenziell oder linear und können iterativ und in unterschiedlichen Kombinationen genutzt werden."),
+    ("3.2.1", 1, "Welche Aktivität richtet Roadmaps und Serviceangebote an den Bedürfnissen der Konsumenten und der Strategie aus?",
+     ["Discover", "Design", "Acquire", "Transition"],
+     "Discover = Ausrichtung von Roadmaps und Serviceangeboten an Konsumentenbedürfnissen und Strategie. Design = Prototypen/Spezifikationen."),
+    ("3.2.3", 1, "In welcher Aktivität werden notwendige Ressourcen effizient gesichert und zugeordnet?",
+     ["Acquire", "Build", "Transition", "Operate"],
+     "Acquire = Ressourcen sichern und zuordnen. Das Onboarding von Lieferanten gehört dagegen zu Transition."),
+    ("3.2.5", 1, "In welcher Aktivität werden neue oder aktualisierte Produkte nahtlos in Betriebsumgebungen eingeführt?",
+     ["Transition", "Build", "Deliver", "Acquire"],
+     "Transition = Einführung in Betriebsumgebungen und Onboarding/Offboarding von Lieferanten. Das Onboarding von Anwendern gehört zu Deliver."),
+
+    # ---- Kategorie 4 (16): 7 BL1, 9 BL2 --------------------------------------------------------------------
+    ("4.2.1", 1, "Welche Option ist KEIN ITIL Grundprinzip?",
+     ["Risiken vor Nutzen priorisieren", "Wertorientierung", "Ganzheitlich denken und arbeiten", "Optimieren und automatisieren"],
+     "Grundprinzipien: Wertorientierung; Dort beginnen, wo man steht; Iterative Weiterentwicklung mit Feedback; Zusammenarbeiten und Transparenz fördern; Ganzheitlich denken und arbeiten; Auf Einfachheit und Praktikabilität achten; Optimieren und automatisieren."),
+    ("4.4.3", 1, "Was ist ein Incident?",
+     ["Eine ungeplante Unterbrechung oder Qualitätsminderung eines Services",
+      "Jede Statusänderung, die für das Management bedeutsam ist",
+      "Eine Ursache oder mögliche Ursache für Incidents",
+      "Ein Mangel oder eine Schwachstelle, die Incidents verursachen kann"],
+     "Incident = ungeplante Unterbrechung/Qualitätsminderung. Option 2 = Event, Option 3 = Problem, Option 4 = Fehler."),
+    ("4.4.7", 1, "Welche Beschreibung passt zu einem Service Request?",
+     ["Eine Anfrage, die eine vereinbarte Serviceaktion als normalen Bestandteil der Servicebereitstellung auslöst",
+      "Eine ungeplante Unterbrechung eines Services",
+      "Ein Problem, das analysiert, aber nicht gelöst wurde",
+      "Ein plötzliches ungeplantes Ereignis mit großem Schaden"],
+     "Service Request = Anfrage nach einer vereinbarten, normalen Serviceaktion (z. B. Passwort-Reset). Option 2 = Incident, 3 = Known Error, 4 = Katastrophe."),
+    ("4.4.8", 1, "Was ist ein Problem im Sinne von ITIL?",
+     ["Eine Ursache oder mögliche Ursache für einen oder mehrere Incidents",
+      "Ein Mangel oder eine Schwachstelle in einem Produkt",
+      "Ein Fehler, der bereits behoben wurde",
+      "Eine ungeplante Unterbrechung eines Services"],
+     "Problem = (mögliche) Ursache von Incidents. Fehler = Mangel/Schwachstelle. Incident = ungeplante Unterbrechung."),
+    ("4.4.6", 1, "Welche Definition beschreibt Site Reliability Engineering (SRE)?",
+     ["Eine Disziplin, die Softwareentwicklung auf Infrastruktur- und Betriebsprobleme anwendet, um zuverlässige Systeme zu schaffen",
+      "Die Fähigkeit, den internen Zustand eines Systems über seine externen Outputs zu verstehen",
+      "Die Fähigkeit, eine vorgesehene Funktion über eine bestimmte Zeit auszuführen",
+      "Techniken zur häufigen Integration von Codeänderungen in ein zentrales Repository"],
+     "SRE = Disziplin mit dem Ziel skalierbarer, hochzuverlässiger Systeme. Option 2 = Observability, 3 = Zuverlässigkeit, 4 = Continuous Integration."),
+    ("4.5.6", 1, "Was ist eine Messgröße?",
+     ["Eine Messung oder Berechnung, die für Management- und Verbesserungszwecke überwacht oder gemeldet wird",
+      "Eine notwendige Voraussetzung für das Erreichen angestrebter Resultate",
+      "Eine Reihe von Kennzahlen für die erwartete Servicequalität",
+      "Die Summe der Merkmale eines Services für die Bedürfniserfüllung"],
+     "Messgröße = überwachte/gemeldete Messung oder Berechnung. Option 2 = Kritischer Erfolgsfaktor, 3 = Service Level, 4 = Servicequalität."),
+    ("4.6.1", 1, "Welcher Schritt folgt im Continual Improvement Model auf „Wo stehen wir jetzt?“?",
+     ["Wo wollen wir hin?", "Wie kommen wir dorthin?", "Maßnahmen ergreifen", "Kommen wir voran?"],
+     "Reihenfolge: Vision → Wo stehen wir jetzt → Wo wollen wir hin → Wie kommen wir dorthin → Maßnahmen ergreifen → Kommen wir voran → Wie stellen wir sicher, dass Verbesserungen relevant bleiben."),
+    ("4.2.2", 2, "Vor jeder Initiative fragt ein Programmleiter: „Für wen entsteht dadurch Wert?“ Welches Grundprinzip wendet er an?",
+     ["Wertorientierung", "Zusammenarbeiten und Transparenz fördern", "Dort beginnen, wo man steht", "Ganzheitlich denken und arbeiten"],
+     "Wertorientierung: Alle Aktivitäten sollen direkt oder indirekt mit Wert für Organisation, Kunden und Stakeholder verknüpft sein."),
+    ("4.2.3", 2, "Vor dem Neubau eines Monitorings inventarisiert ein Team vorhandene Werkzeuge. Welches Grundprinzip wird angewendet?",
+     ["Dort beginnen, wo man steht", "Iterative Weiterentwicklung mit Feedback", "Optimieren und automatisieren", "Auf Einfachheit und Praktikabilität achten"],
+     "Dort beginnen, wo man steht: Vorhandenes zuerst bewerten und wiederverwenden, bevor Neues gebaut wird."),
+    ("4.2.5", 2, "Eine Abteilung führt Änderungen ein, ohne Betroffene einzubinden oder Entscheidungen sichtbar zu machen. Welches Prinzip wird VERLETZT?",
+     ["Zusammenarbeiten und Transparenz fördern", "Wertorientierung", "Dort beginnen, wo man steht", "Optimieren und automatisieren"],
+     "Zusammenarbeiten und Transparenz fördern: die richtigen Personen einbinden und Arbeit/Entscheidungen sichtbar machen."),
+    ("4.2.7", 2, "Ein Prozess hat zwölf Schritte, vier davon ohne Beitrag zum Ergebnis. Was empfiehlt „Auf Einfachheit und Praktikabilität achten“?",
+     ["Schritte ohne Beitrag zu Wert oder Ergebnis entfernen", "Alle Schritte automatisieren, um den Aufwand zu senken",
+      "Die Schritte besser dokumentieren und schulen", "Zusätzliche Kontrollschritte einführen, um Risiken abzusichern"],
+     "Was keinen Wert oder kein nützliches Ergebnis liefert, wird entfernt; Ziel ist die minimale Anzahl nötiger Schritte."),
+    ("4.2.8", 2, "Ein Team will einen uneinheitlichen Ablauf sofort automatisieren. Was ist nach „Optimieren und automatisieren“ ZUERST sinnvoll?",
+     ["Den Ablauf vereinfachen und optimieren", "Das Tool zunächst einsetzen und später anpassen",
+      "Den Ablauf belassen und nur die Dokumentation erweitern", "Mehr Personal für die manuelle Bearbeitung bereitstellen"],
+     "Erst vereinfachen/optimieren, dann automatisieren; sonst werden die Schwächen eines schlechten Ablaufs nur vervielfacht."),
+    ("4.4.10", 2, "Welche Aussage zu Fehler, Problem und Known Error ist KORREKT?",
+     ["Ein Problem, das analysiert, aber nicht gelöst ist, wird zum Known Error",
+      "Ein Known Error ist ein Mangel, der Incidents verursachen kann",
+      "Ein Fehler ist die Ursache für genau einen Known Error",
+      "Ein Problem entsteht erst, nachdem ein Known Error behoben wurde"],
+     "Fehler = Mangel/Schwachstelle; Problem = (mögliche) Ursache von Incidents; Known Error = analysiertes, aber ungelöstes Problem."),
+    ("4.5.4", 2, "Welcher Aspekt eines offiziellen Practice-Leitfadens enthält Zweck, Schlüsselbegriffe, Erfolgsfaktoren und Kennzahlen?",
+     ["Allgemeine Informationen", "Organisationen und Menschen", "Partner und Lieferanten", "Assessment und Entwicklung von Fähigkeiten"],
+     "Allgemeine Informationen: Zweck, Beschreibung, Schlüsselbegriffe, Geltungsbereich, Erfolgsfaktoren, Kennzahlen. Organisationen und Menschen: Rollen/Kompetenzen; Partner und Lieferanten: Drittparteien; Assessment: Reifegrade."),
+    ("4.5.5", 2, "Welchen Nutzen haben ITIL Practice-Leitfäden?",
+     ["Sie sind konsistent strukturiert, umfassend, praktisch und mit Continual Improvement verknüpft",
+      "Sie ersetzen die Grundprinzipien und das Betriebsmodell der Organisation",
+      "Sie schreiben verbindlich vor, wie jede Organisation ihre Practices umsetzen muss",
+      "Sie decken ausschließlich Betrieb und Support digitaler Services ab"],
+     "Nutzen: konsistent, umfassend, praktisch und mit dem Reifegradmodell für Continual Improvement verknüpft."),
+    ("4.6.2", 2, "In welchem Schritt des CI-Modells wird der Weg vom Ist- zum Soll-Zustand geplant?",
+     ["Wie kommen wir dorthin?", "Wo wollen wir hin?", "Maßnahmen ergreifen", "Kommen wir voran?"],
+     "„Wie kommen wir dorthin?“ plant die Überbrückung von A nach B. „Wo wollen wir hin?“ legt den Soll-Zustand fest."),
+
+    # ---- Kategorie 5 (2): 2 BL2 ----------------------------------------------------------------------------
+    ("5.1.4", 2, "Welche Aussage über Kernwertströme und unterstützende Wertströme ist ZUTREFFEND?",
+     ["Unterstützende Wertströme schaffen Wert für interne Kunden und unterstützen die Kernwertströme",
+      "Kernwertströme schaffen ausschließlich Wert für interne Kunden der Organisation",
+      "Unterstützende Wertströme liefern den Wert direkt an externe Konsumenten",
+      "Kern- und unterstützende Wertströme unterscheiden sich nur in ihrer Dauer"],
+     "Kernwertströme schaffen Wert für Konsumenten; unterstützende Wertströme schaffen Wert für interne Kunden und stützen die Kernwertströme."),
+    ("5.3.2", 2, "Wie hängen Wertstromabbildung und Wertstrommanagement zusammen?",
+     ["Die Abbildung ist eine Technik zur Visualisierung und Analyse; das Management ist der fortlaufende Fokus auf Verbesserung",
+      "Die Abbildung ersetzt das Management, sobald alle Wertströme einmal erfasst wurden",
+      "Das Management ist eine einmalige Technik, die Abbildung ein fortlaufender Prozess",
+      "Beide sind Synonyme für die Erstellung eines Betriebsmodells"],
+     "Abbildung = Technik (visualisieren, analysieren); Management = anhaltender Fokus auf Analyse und Verbesserung der Wertströme."),
+
+    # ---- Kategorie 6 (1) / 7 (1): je BL2 --------------------------------------------------------------------
+    ("6.1.3", 2, "Welche Aussage über KI in den Aktivitäten der Wertschöpfungskette ist ZUTREFFEND?",
+     ["KI kann in allen Aktivitäten unterstützen, benötigt aber menschliche Aufsicht und Governance",
+      "KI ersetzt in Operate und Support die menschlichen Rollen vollständig",
+      "KI ist nur in Discover und Design sinnvoll einsetzbar",
+      "KI entbindet die Organisation von der Einhaltung ihrer Grundprinzipien"],
+     "KI unterstützt wirksam in allen Aktivitäten, bleibt aber unter menschlicher Aufsicht (Human-in-the-Loop) und Governance."),
+    ("7.2.2", 2, "Ein neues Portal wird als PRINCE2-Projekt eingeführt. Wie ergänzen sich ITIL und PRINCE2?",
+     ["PRINCE2 steuert die Lieferung der Änderung, ITIL das Management des Produkts über den Lebenszyklus",
+      "ITIL steuert das zeitlich begrenzte Projekt, PRINCE2 den laufenden Betrieb",
+      "ITIL kommt erst nach Projektabschluss zum Einsatz, PRINCE2 endet vorher ohne Übergabe",
+      "Sie schließen sich aus, da beide ein eigenes Lebenszyklusmodell vorgeben"],
+     "PRINCE2 unterstützt die Lieferung von Änderungen als Projekt; ITIL managt Produkte und Services über den gesamten Lebenszyklus. Sie richten Strategie, Veränderungsinitiativen und Betrieb aufeinander aus."),
+]
+
+
+def compile_items():
+    rnd = random.Random(2026100204)
+    pos = [0, 1, 2, 3] * 10
+    rnd.shuffle(pos)
+    items = []
+    for n, ((lo, bl, q, opts, why), k) in enumerate(zip(Q, pos), 1):
+        key, ds = opts[0], opts[1:]
+        # Geschwister-Optionen (z. B. Dimensionen, Lebenszyklusaktivitäten) bleiben unsortiert, damit keine Reihenfolge-Hinweise entstehen
+        rnd.shuffle(ds)
+        items.append({"id": f"i5s4_{n:03d}", "exam": "itil5", "lo": lo, "bl": bl, "type": "std", "q": q,
+                      "options": ds[:k] + [key] + ds[k:], "answer": k, "why": why, "src": "xlrte-s4:sp-profil",
+                      "status": "shadow", "set": "S4"})
+    return items
+
+
+if __name__ == "__main__":
+    items = compile_items()
+    out = os.path.join(os.path.dirname(__file__), "..", "data", "items_itil5_s4.json")
+    with open(out, "w", encoding="utf-8") as f:
+        json.dump(items, f, ensure_ascii=False, indent=1)
+    print(len(items), "Fragen →", os.path.normpath(out))

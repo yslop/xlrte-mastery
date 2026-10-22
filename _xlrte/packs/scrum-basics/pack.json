@@ -1,0 +1,94 @@
+{
+ "id": "scrum-basics",
+ "name": "Scrum-Grundlagen (Beispielpaket)",
+ "short": "Scrum",
+ "lang": "de",
+ "version": "0.1",
+ "license": "CC BY-SA 4.0",
+ "note": "Eigene Formulierungen. Beispiel dafür, wie ein Lernpaket aufgebaut ist; kein Ersatz für eine Zertifizierungsvorbereitung.",
+ "exam": {
+  "questions": 20,
+  "minutes": 30,
+  "pass_pct": 80
+ },
+ "categories": [
+  {
+   "id": "T",
+   "name": "Theorie und Werte",
+   "weight": 20
+  },
+  {
+   "id": "R",
+   "name": "Verantwortlichkeiten",
+   "weight": 30
+  },
+  {
+   "id": "E",
+   "name": "Events",
+   "weight": 30
+  },
+  {
+   "id": "A",
+   "name": "Artefakte und Commitments",
+   "weight": 20
+  }
+ ],
+ "los": [
+  {
+   "id": "T.1",
+   "cat": "T",
+   "text": "Empirie: Transparenz, Überprüfung, Anpassung"
+  },
+  {
+   "id": "T.2",
+   "cat": "T",
+   "text": "Scrum-Werte"
+  },
+  {
+   "id": "R.1",
+   "cat": "R",
+   "text": "Product Owner"
+  },
+  {
+   "id": "R.2",
+   "cat": "R",
+   "text": "Scrum Master"
+  },
+  {
+   "id": "R.3",
+   "cat": "R",
+   "text": "Developers"
+  },
+  {
+   "id": "E.1",
+   "cat": "E",
+   "text": "Sprint und Sprint Planning"
+  },
+  {
+   "id": "E.2",
+   "cat": "E",
+   "text": "Daily Scrum"
+  },
+  {
+   "id": "E.3",
+   "cat": "E",
+   "text": "Sprint Review und Retrospektive"
+  },
+  {
+   "id": "A.1",
+   "cat": "A",
+   "text": "Product Backlog und Produktziel"
+  },
+  {
+   "id": "A.2",
+   "cat": "A",
+   "text": "Sprint Backlog, Inkrement und Definition of Done"
+  }
+ ],
+ "items": [
+  "items.json"
+ ],
+ "glossary": [
+  "glossary.json"
+ ]
+}

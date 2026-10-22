@@ -1,0 +1,15 @@
+#!/bin/sh
+# XLRTE Mastery: ./mastery            Tageslauf (beim ersten Mal: Einrichtungs-Dialog)
+#                ./mastery setup      Einrichtung erneut öffnen
+#                ./mastery <befehl>   z. B. ./mastery status | render | check
+DIR="$(cd "$(dirname "$0")" && pwd)"
+PY="$(command -v python3 || command -v python)"
+[ -z "$PY" ] && { echo "Python 3.9+ fehlt: https://www.python.org/downloads/"; exit 1; }
+if [ "$1" = "setup" ]; then shift; exec "$PY" "$DIR/setup/xlrte_setup.py" "$@"; fi
+if [ ! -f "$DIR/config/settings.json" ]; then
+  echo "Erste Nutzung: die Einrichtung öffnet sich im Browser."
+  "$PY" "$DIR/setup/xlrte_setup.py" || exit $?
+  exit 0
+fi
+CMD="${1:-run}"; [ $# -gt 0 ] && shift
+"$PY" "$DIR/_xlrte/scripts/xlrte.py" "$CMD" "$@" && [ "$CMD" = "run" ] && echo "Cockpit: $DIR/XLRTE_Cockpit.html"

@@ -1,0 +1,326 @@
+[
+ {
+  "id": "sc_001",
+  "exam": "scrum-basics",
+  "lo": "T.1",
+  "bl": 2,
+  "type": "std",
+  "q": "Ein Team stellt fest, dass sein Fortschritt für Stakeholder kaum sichtbar ist. Welche Säule der Empirie ist vor allem geschwächt?",
+  "options": [
+   "Selbstmanagement",
+   "Anpassung",
+   "Transparenz",
+   "Fokus"
+  ],
+  "answer": 2,
+  "why": "Ohne Transparenz kann weder sinnvoll überprüft noch angepasst werden.",
+  "src": "xlrte-pack",
+  "status": "approved"
+ },
+ {
+  "id": "sc_002",
+  "exam": "scrum-basics",
+  "lo": "T.1",
+  "bl": 1,
+  "type": "std",
+  "q": "Wann sollte ein Scrum Team anpassen, was es tut?",
+  "options": [
+   "Sobald eine Überprüfung eine unerwünschte Abweichung zeigt",
+   "Erst nach Freigabe durch das Management",
+   "Am Ende des Release",
+   "Nur in der Retrospektive"
+  ],
+  "answer": 0,
+  "why": "Anpassung soll so früh wie möglich erfolgen, um weitere Abweichungen zu begrenzen.",
+  "src": "xlrte-pack",
+  "status": "approved"
+ },
+ {
+  "id": "sc_003",
+  "exam": "scrum-basics",
+  "lo": "T.2",
+  "bl": 2,
+  "type": "std",
+  "q": "Ein Developer gibt in der Retrospektive offen zu, eine Aufgabe unterschätzt zu haben. Welcher Wert zeigt sich hier am deutlichsten?",
+  "options": [
+   "Respekt",
+   "Commitment",
+   "Offenheit",
+   "Fokus"
+  ],
+  "answer": 2,
+  "why": "Offenheit heißt, über Arbeit und Schwierigkeiten ehrlich zu sprechen.",
+  "src": "xlrte-pack",
+  "status": "approved"
+ },
+ {
+  "id": "sc_004",
+  "exam": "scrum-basics",
+  "lo": "T.2",
+  "bl": 1,
+  "type": "std",
+  "q": "Welche Aufzählung enthält nur Scrum-Werte?",
+  "options": [
+   "Planung, Steuerung, Abschluss",
+   "Qualität, Zeit, Kosten",
+   "Commitment, Fokus, Offenheit, Respekt, Mut",
+   "Transparenz, Überprüfung, Anpassung"
+  ],
+  "answer": 2,
+  "why": "Die drei Säulen der Empirie sind keine Werte; die anderen sind Projektdimensionen.",
+  "src": "xlrte-pack",
+  "status": "approved"
+ },
+ {
+  "id": "sc_005",
+  "exam": "scrum-basics",
+  "lo": "R.1",
+  "bl": 1,
+  "type": "std",
+  "q": "Wer ist dafür verantwortlich, dass das Product Backlog geordnet ist?",
+  "options": [
+   "Der Product Owner",
+   "Die Stakeholder",
+   "Die Developers",
+   "Der Scrum Master"
+  ],
+  "answer": 0,
+  "why": "Der Product Owner bleibt verantwortlich, auch wenn er Arbeit delegiert.",
+  "src": "xlrte-pack",
+  "status": "approved"
+ },
+ {
+  "id": "sc_006",
+  "exam": "scrum-basics",
+  "lo": "R.1",
+  "bl": 2,
+  "type": "std",
+  "q": "Ein Stakeholder möchte mitten im Sprint eine neue Anforderung einbringen. An wen wendet er sich?",
+  "options": [
+   "An die Personalabteilung",
+   "Direkt an einen Developer",
+   "An den Scrum Master",
+   "An den Product Owner"
+  ],
+  "answer": 3,
+  "why": "Der Product Owner entscheidet über Inhalte und Reihenfolge des Product Backlogs.",
+  "src": "xlrte-pack",
+  "status": "approved"
+ },
+ {
+  "id": "sc_007",
+  "exam": "scrum-basics",
+  "lo": "R.2",
+  "bl": 1,
+  "type": "std",
+  "q": "Was beschreibt die Rolle des Scrum Masters am besten?",
+  "options": [
+   "Sprecher der Developers gegenüber dem Kunden",
+   "Projektleiter mit Weisungsbefugnis",
+   "Eine Führungskraft, die dem Team und der Organisation dient und Scrum wirksam macht",
+   "Qualitätsprüfer am Sprint-Ende"
+  ],
+  "answer": 2,
+  "why": "Der Scrum Master ist für die Wirksamkeit des Scrum Teams verantwortlich.",
+  "src": "xlrte-pack",
+  "status": "approved"
+ },
+ {
+  "id": "sc_008",
+  "exam": "scrum-basics",
+  "lo": "R.2",
+  "bl": 2,
+  "type": "std",
+  "q": "Das Team wird ständig durch Anfragen von außen gestört. Was tut der Scrum Master zuerst?",
+  "options": [
+   "Verlängert den Sprint",
+   "Verbietet alle Anfragen",
+   "Übernimmt die Anfragen selbst",
+   "Hilft, die Ursache sichtbar zu machen und Hindernisse zu beseitigen"
+  ],
+  "answer": 3,
+  "why": "Hindernisse beseitigen heißt Ursachen angehen, nicht Symptome.",
+  "src": "xlrte-pack",
+  "status": "approved"
+ },
+ {
+  "id": "sc_009",
+  "exam": "scrum-basics",
+  "lo": "R.3",
+  "bl": 1,
+  "type": "std",
+  "q": "Wer erstellt den Plan für den Sprint, das Sprint Backlog?",
+  "options": [
+   "Der Scrum Master",
+   "Die Developers",
+   "Das Management",
+   "Der Product Owner"
+  ],
+  "answer": 1,
+  "why": "Das Sprint Backlog ist ein Plan von und für die Developers.",
+  "src": "xlrte-pack",
+  "status": "approved"
+ },
+ {
+  "id": "sc_010",
+  "exam": "scrum-basics",
+  "lo": "R.3",
+  "bl": 2,
+  "type": "std",
+  "q": "Wer entscheidet, wie die Developers ein Product-Backlog-Eintrag in ein Inkrement umsetzen?",
+  "options": [
+   "Der Scrum Master",
+   "Der Product Owner",
+   "Die Developers",
+   "Der Architekt"
+  ],
+  "answer": 2,
+  "why": "Die Developers organisieren ihre Arbeit selbst.",
+  "src": "xlrte-pack",
+  "status": "approved"
+ },
+ {
+  "id": "sc_011",
+  "exam": "scrum-basics",
+  "lo": "E.1",
+  "bl": 1,
+  "type": "std",
+  "q": "Welche drei Themen behandelt das Sprint Planning?",
+  "options": [
+   "Warum ist der Sprint wertvoll, was kann erledigt werden, wie wird es erledigt",
+   "Risiken, Probleme, Annahmen",
+   "Budget, Termin, Umfang",
+   "Gestern, heute, Hindernisse"
+  ],
+  "answer": 0,
+  "why": "Daraus entsteht das Sprintziel und der Plan.",
+  "src": "xlrte-pack",
+  "status": "approved"
+ },
+ {
+  "id": "sc_012",
+  "exam": "scrum-basics",
+  "lo": "E.1",
+  "bl": 1,
+  "type": "std",
+  "q": "Was passiert mit dem Sprintziel während des Sprints?",
+  "options": [
+   "Es bleibt bestehen; der Umfang kann mit dem Product Owner geklärt werden",
+   "Der Scrum Master kann es jederzeit ändern",
+   "Es wird erst im Review formuliert",
+   "Es wird täglich neu festgelegt"
+  ],
+  "answer": 0,
+  "why": "Das Sprintziel gibt Fokus; der Weg dahin darf sich ändern.",
+  "src": "xlrte-pack",
+  "status": "approved"
+ },
+ {
+  "id": "sc_013",
+  "exam": "scrum-basics",
+  "lo": "E.2",
+  "bl": 1,
+  "type": "std",
+  "q": "Wozu dient das Daily Scrum?",
+  "options": [
+   "Fortschritt Richtung Sprintziel überprüfen und den Plan anpassen",
+   "Fehler einzelner Personen besprechen",
+   "Neue Anforderungen aufnehmen",
+   "Dem Management Status berichten"
+  ],
+  "answer": 0,
+  "why": "Es ist ein Planungs-Event der Developers, höchstens 15 Minuten.",
+  "src": "xlrte-pack",
+  "status": "approved"
+ },
+ {
+  "id": "sc_014",
+  "exam": "scrum-basics",
+  "lo": "E.3",
+  "bl": 1,
+  "type": "std",
+  "q": "Was steht im Mittelpunkt der Sprint Review?",
+  "options": [
+   "Das Ergebnis des Sprints mit Stakeholdern überprüfen und das weitere Vorgehen anpassen",
+   "Die Leistung einzelner Developers bewerten",
+   "Den Prozess des Teams verbessern",
+   "Das Inkrement formal abnehmen"
+  ],
+  "answer": 0,
+  "why": "Die Review ist eine Arbeitssitzung, keine reine Präsentation.",
+  "src": "xlrte-pack",
+  "status": "approved"
+ },
+ {
+  "id": "sc_015",
+  "exam": "scrum-basics",
+  "lo": "E.3",
+  "bl": 1,
+  "type": "std",
+  "q": "Was ist das Ziel der Sprint Retrospektive?",
+  "options": [
+   "Wege finden, Qualität und Wirksamkeit zu steigern",
+   "Das Product Backlog neu ordnen",
+   "Das Produkt den Stakeholdern zeigen",
+   "Den nächsten Sprint planen"
+  ],
+  "answer": 0,
+  "why": "Sie betrachtet Personen, Zusammenarbeit, Prozesse und Werkzeuge.",
+  "src": "xlrte-pack",
+  "status": "approved"
+ },
+ {
+  "id": "sc_016",
+  "exam": "scrum-basics",
+  "lo": "A.1",
+  "bl": 1,
+  "type": "std",
+  "q": "Welches Commitment gehört zum Product Backlog?",
+  "options": [
+   "Das Sprintziel",
+   "Die Velocity",
+   "Die Definition of Done",
+   "Das Produktziel"
+  ],
+  "answer": 3,
+  "why": "Jedes Artefakt hat ein Commitment; beim Product Backlog ist es das Produktziel.",
+  "src": "xlrte-pack",
+  "status": "approved"
+ },
+ {
+  "id": "sc_017",
+  "exam": "scrum-basics",
+  "lo": "A.2",
+  "bl": 1,
+  "type": "std",
+  "q": "Wann gilt ein Product-Backlog-Eintrag als Teil eines Inkrements?",
+  "options": [
+   "Am Ende des Sprints",
+   "Wenn der Product Owner ihn abnimmt",
+   "Wenn er die Definition of Done erfüllt",
+   "Wenn er getestet wurde"
+  ],
+  "answer": 2,
+  "why": "Erst mit der Definition of Done entsteht ein Inkrement.",
+  "src": "xlrte-pack",
+  "status": "approved"
+ },
+ {
+  "id": "sc_018",
+  "exam": "scrum-basics",
+  "lo": "A.2",
+  "bl": 1,
+  "type": "std",
+  "q": "Welches Commitment gehört zum Sprint Backlog?",
+  "options": [
+   "Das Sprintziel",
+   "Das Produktziel",
+   "Die Definition of Done",
+   "Der Releaseplan"
+  ],
+  "answer": 0,
+  "why": "Das Sprintziel gibt dem Sprint Backlog seine Richtung.",
+  "src": "xlrte-pack",
+  "status": "approved"
+ }
+]

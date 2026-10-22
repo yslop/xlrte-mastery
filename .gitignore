@@ -1,0 +1,21 @@
+# Lernstand, Notizen, Schlüssel und lizenzierte Auszüge bleiben lokal.
+.env
+.env.*
+config/
+logs/
+_xlrte/config.json
+_xlrte/data/
+_xlrte/state/
+_xlrte/journal/
+_xlrte/inbox/
+_xlrte/bridge/
+_xlrte/lab/
+_xlrte/_backup/
+_xlrte/notebooklm/*
+!_xlrte/notebooklm/XLRTE_Lern_Engine_Prompt*.md
+/*.html
+*.csv
+*.pdf
+__pycache__/
+.pytest_cache/
+.DS_Store

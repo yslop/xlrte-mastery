@@ -1,0 +1,164 @@
+[
+ {
+  "id": "sg_01",
+  "exam": "scrum-basics",
+  "term": "Transparenz",
+  "definition": "Die Arbeit und ihr Fortschritt sind für alle sichtbar, die sie überprüfen müssen.",
+  "los": [
+   "T.1"
+  ]
+ },
+ {
+  "id": "sg_02",
+  "exam": "scrum-basics",
+  "term": "Überprüfung",
+  "definition": "Regelmäßiger Blick auf Artefakte und Fortschritt, um unerwünschte Abweichungen zu erkennen.",
+  "los": [
+   "T.1"
+  ]
+ },
+ {
+  "id": "sg_03",
+  "exam": "scrum-basics",
+  "term": "Anpassung",
+  "definition": "Ändern von Vorgehen oder Ergebnis, sobald eine Abweichung erkannt ist.",
+  "los": [
+   "T.1"
+  ]
+ },
+ {
+  "id": "sg_04",
+  "exam": "scrum-basics",
+  "term": "Mut",
+  "definition": "Das Richtige tun und schwierige Probleme angehen, auch wenn es unbequem ist.",
+  "los": [
+   "T.2"
+  ]
+ },
+ {
+  "id": "sg_05",
+  "exam": "scrum-basics",
+  "term": "Fokus",
+  "definition": "Konzentration auf die Arbeit des Sprints und das Sprintziel.",
+  "los": [
+   "T.2"
+  ]
+ },
+ {
+  "id": "sg_06",
+  "exam": "scrum-basics",
+  "term": "Product Owner",
+  "definition": "Verantwortlich für die Maximierung des Produktwerts und für das Product Backlog.",
+  "los": [
+   "R.1"
+  ]
+ },
+ {
+  "id": "sg_07",
+  "exam": "scrum-basics",
+  "term": "Scrum Master",
+  "definition": "Verantwortlich dafür, dass Scrum verstanden und wirksam angewendet wird.",
+  "los": [
+   "R.2"
+  ]
+ },
+ {
+  "id": "sg_08",
+  "exam": "scrum-basics",
+  "term": "Developers",
+  "definition": "Die Personen, die in jedem Sprint ein nutzbares Inkrement erstellen.",
+  "los": [
+   "R.3"
+  ]
+ },
+ {
+  "id": "sg_09",
+  "exam": "scrum-basics",
+  "term": "Sprint",
+  "definition": "Fester Zeitraum von höchstens einem Monat, in dem ein wertvolles Inkrement entsteht.",
+  "los": [
+   "E.1"
+  ]
+ },
+ {
+  "id": "sg_10",
+  "exam": "scrum-basics",
+  "term": "Sprint Planning",
+  "definition": "Event zu Sprintbeginn, in dem Warum, Was und Wie des Sprints festgelegt werden.",
+  "los": [
+   "E.1"
+  ]
+ },
+ {
+  "id": "sg_11",
+  "exam": "scrum-basics",
+  "term": "Daily Scrum",
+  "definition": "Tägliches 15-Minuten-Event der Developers zur Überprüfung des Fortschritts Richtung Sprintziel.",
+  "los": [
+   "E.2"
+  ]
+ },
+ {
+  "id": "sg_12",
+  "exam": "scrum-basics",
+  "term": "Sprint Review",
+  "definition": "Arbeitssitzung mit Stakeholdern, um das Ergebnis zu überprüfen und das weitere Vorgehen anzupassen.",
+  "los": [
+   "E.3"
+  ]
+ },
+ {
+  "id": "sg_13",
+  "exam": "scrum-basics",
+  "term": "Sprint Retrospektive",
+  "definition": "Event, in dem das Team Wege sucht, Qualität und Wirksamkeit zu erhöhen.",
+  "los": [
+   "E.3"
+  ]
+ },
+ {
+  "id": "sg_14",
+  "exam": "scrum-basics",
+  "term": "Product Backlog",
+  "definition": "Geordnete Liste dessen, was zur Verbesserung des Produkts nötig ist.",
+  "los": [
+   "A.1"
+  ]
+ },
+ {
+  "id": "sg_15",
+  "exam": "scrum-basics",
+  "term": "Produktziel",
+  "definition": "Langfristiges Ziel des Scrum Teams; das Commitment des Product Backlogs.",
+  "los": [
+   "A.1"
+  ]
+ },
+ {
+  "id": "sg_16",
+  "exam": "scrum-basics",
+  "term": "Sprint Backlog",
+  "definition": "Sprintziel, ausgewählte Einträge und der Plan, sie zu liefern.",
+  "los": [
+   "A.2"
+  ]
+ },
+ {
+  "id": "sg_17",
+  "exam": "scrum-basics",
+  "term": "Inkrement",
+  "definition": "Ein konkreter, nutzbarer Schritt in Richtung Produktziel.",
+  "los": [
+   "A.2"
+  ]
+ },
+ {
+  "id": "sg_18",
+  "exam": "scrum-basics",
+  "term": "Definition of Done",
+  "definition": "Formale Beschreibung des Zustands, den ein Inkrement für die geforderte Qualität erreicht.",
+  "los": [
+   "A.2"
+  ]
+ }
+]

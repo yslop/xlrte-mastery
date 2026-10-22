@@ -1,0 +1,306 @@
+{
+ "product": "xlrte-mastery",
+ "product_label": {
+  "de": "Mastery · Lern-Cockpit",
+  "en": "Mastery · learning cockpit"
+ },
+ "title": {
+  "de": "Willkommen bei XLRTE Mastery",
+  "en": "Welcome to XLRTE Mastery"
+ },
+ "intro": {
+  "de": "Ein paar Fragen zu deiner Prüfung und deinem Lernrhythmus. Danach baut Mastery dein Lernpaket und dein Cockpit. Jede Prüfung ist möglich: wähle ein Paket oder lege deine eigene an.",
+  "en": "A few questions about your exam and your learning rhythm. Then Mastery builds your pack and your cockpit. Any exam works: pick a pack or create your own."
+ },
+ "minutes": 4,
+ "next_steps": {
+  "de": "Öffne <code>XLRTE_Cockpit.html</code> im Browser. Jeden Lerntag startest du mit <code>./mastery</code>: neue Übungen, Lernstand, Briefing. Am Abend speicherst du im Journal deinen Tages-Recap.",
+  "en": "Open <code>XLRTE_Cockpit.html</code> in your browser. Start every study day with <code>./mastery</code>: new drills, progress, briefing. In the evening, save your daily recap in the journal."
+ },
+ "steps": [
+  {
+   "id": "exam",
+   "title": {
+    "de": "Deine Prüfung",
+    "en": "Your exam"
+   },
+   "intro": {
+    "de": "Mastery richtet Plan, Simulationen und Prognose danach aus.",
+    "en": "Mastery sets the plan, simulations and forecast accordingly."
+   },
+   "fields": [
+    {
+     "key": "name",
+     "label": {
+      "de": "Name oder Pseudonym",
+      "en": "Name or pseudonym"
+     },
+     "type": "text",
+     "required": true
+    },
+    {
+     "key": "exam",
+     "label": {
+      "de": "Lernpaket",
+      "en": "Learning pack"
+     },
+     "type": "select",
+     "default": "pmp",
+     "options": [
+      {
+       "value": "pmp",
+       "label": {
+        "de": "PMP (über 500 eigene Fragen, Englisch)",
+        "en": "PMP (500+ original questions, English)"
+       }
+      },
+      {
+       "value": "itil5",
+       "label": {
+        "de": "ITIL 5 Foundation – Muster (über 200 eigene Fragen, Deutsch)",
+        "en": "ITIL 5 Foundation – pattern pack (200+ original questions, German)"
+       }
+      },
+      {
+       "value": "scrum-basics",
+       "label": {
+        "de": "Scrum-Grundlagen – kleines Beispielpaket (Deutsch)",
+        "en": "Scrum basics – small sample pack (German)"
+       }
+      },
+      {
+       "value": "new",
+       "label": {
+        "de": "Eigene Prüfung anlegen (Felder unten ausfüllen)",
+        "en": "Create my own exam (fill in the fields below)"
+       }
+      }
+     ]
+    },
+    {
+     "key": "target_date",
+     "label": {
+      "de": "Prüfungstermin (oder Wunschtermin)",
+      "en": "Exam date (or target date)"
+     },
+     "type": "date",
+     "required": true
+    },
+    {
+     "key": "booked",
+     "label": {
+      "de": "Termin ist schon gebucht",
+      "en": "Exam is already booked"
+     },
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "key": "target_pct",
+     "label": {
+      "de": "Zielquote in Übungsprüfungen (%)",
+      "en": "Target score in practice exams (%)"
+     },
+     "type": "number",
+     "default": 75
+    }
+   ]
+  },
+  {
+   "id": "own",
+   "title": {
+    "de": "Eigene Prüfung (optional)",
+    "en": "Your own exam (optional)"
+   },
+   "intro": {
+    "de": "Nur ausfüllen, wenn du oben „Eigene Prüfung anlegen“ gewählt hast. Kategorien und Gewichte findest du meist im offiziellen Prüfungsprofil.",
+    "en": "Only if you chose “Create my own exam” above. Categories and weights are usually in the official exam outline."
+   },
+   "fields": [
+    {
+     "key": "new_name",
+     "label": {
+      "de": "Name der Prüfung",
+      "en": "Exam name"
+     },
+     "type": "text",
+     "placeholder": {
+      "de": "z. B. AWS Solutions Architect Associate",
+      "en": "e.g. AWS Solutions Architect Associate"
+     }
+    },
+    {
+     "key": "new_short",
+     "label": {
+      "de": "Kurzname",
+      "en": "Short name"
+     },
+     "type": "text",
+     "placeholder": "AWS SAA"
+    },
+    {
+     "key": "new_lang",
+     "label": {
+      "de": "Sprache der Prüfung",
+      "en": "Exam language"
+     },
+     "type": "select",
+     "default": "de",
+     "options": [
+      {
+       "value": "de",
+       "label": {
+        "de": "Deutsch",
+        "en": "German"
+       }
+      },
+      {
+       "value": "en",
+       "label": {
+        "de": "Englisch",
+        "en": "English"
+       }
+      }
+     ]
+    },
+    {
+     "key": "new_categories",
+     "label": {
+      "de": "Kategorien mit Gewicht in %",
+      "en": "Categories with weight in %"
+     },
+     "type": "lines",
+     "placeholder": {
+      "de": "Sichere Architekturen; 30\nRobuste Architekturen; 26\nPerformance; 24\nKosten; 20",
+      "en": "Secure architectures; 30\nResilient architectures; 26\nHigh performance; 24\nCost; 20"
+     },
+     "help": {
+      "de": "Eine pro Zeile: Name; Gewicht",
+      "en": "One per line: name; weight"
+     }
+    },
+    {
+     "key": "new_questions",
+     "label": {
+      "de": "Fragen in der Prüfung",
+      "en": "Questions in the exam"
+     },
+     "type": "number",
+     "default": 40
+    },
+    {
+     "key": "new_minutes",
+     "label": {
+      "de": "Minuten",
+      "en": "Minutes"
+     },
+     "type": "number",
+     "default": 60
+    },
+    {
+     "key": "new_pass",
+     "label": {
+      "de": "Bestehensgrenze (%)",
+      "en": "Pass mark (%)"
+     },
+     "type": "number",
+     "default": 65
+    }
+   ]
+  },
+  {
+   "id": "rhythm",
+   "title": {
+    "de": "Lernrhythmus",
+    "en": "Learning rhythm"
+   },
+   "intro": {
+    "de": "Ehrlich planen: lieber jeden Werktag etwas als am Wochenende alles.",
+    "en": "Plan honestly: a little every weekday beats everything at the weekend."
+   },
+   "fields": [
+    {
+     "key": "daily_minutes",
+     "label": {
+      "de": "Lernzeit pro Werktag (Minuten)",
+      "en": "Study time per weekday (minutes)"
+     },
+     "type": "number",
+     "default": 60
+    },
+    {
+     "key": "streak_retrievals",
+     "label": {
+      "de": "So viele Abrufe pro Tag zählen als Lerntag",
+      "en": "Retrievals per day that count as a study day"
+     },
+     "type": "number",
+     "default": 25
+    },
+    {
+     "key": "recap_by",
+     "label": {
+      "de": "Tages-Recap bis (Uhrzeit)",
+      "en": "Daily recap by (time)"
+     },
+     "type": "text",
+     "default": "21:00",
+     "help": {
+      "de": "Am Ende des Tages vergleicht der Recap deinen Tag mit deinem bisherigen Lernzeitraum.",
+      "en": "At the end of the day the recap compares your day with your learning period so far."
+     }
+    },
+    {
+     "key": "course",
+     "label": {
+      "de": "Ich besuche einen Kurs mit Anwesenheitsmeldung (Login/Logout)",
+      "en": "I attend a course that requires attendance (login/logout)"
+     },
+     "type": "checkbox",
+     "default": false
+    },
+    {
+     "key": "tutor",
+     "label": {
+      "de": "Womit lernst du mit KI?",
+      "en": "How do you study with AI?"
+     },
+     "type": "select",
+     "default": "notebook",
+     "options": [
+      {
+       "value": "notebook",
+       "label": {
+        "de": "Gemini Notebook / NotebookLM (Prompt zum Einfügen)",
+        "en": "Gemini Notebook / NotebookLM (prompt to paste)"
+       }
+      },
+      {
+       "value": "agent",
+       "label": {
+        "de": "KI im Ordner (Claude Code, Codex, Gemini CLI)",
+        "en": "AI in this folder (Claude Code, Codex, Gemini CLI)"
+       }
+      },
+      {
+       "value": "none",
+       "label": {
+        "de": "Ohne KI",
+        "en": "No AI"
+       }
+      }
+     ]
+    },
+    {
+     "key": "demo",
+     "label": {
+      "de": "Mit Beispiel-Lernverlauf starten (fiktiv, 3 Wochen)",
+      "en": "Start with a sample learning history (fictional, 3 weeks)"
+     },
+     "type": "checkbox",
+     "default": true
+    }
+   ]
+  }
+ ]
+}

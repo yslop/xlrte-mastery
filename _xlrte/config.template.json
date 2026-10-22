@@ -1,0 +1,14 @@
+{
+ "learner": "",
+ "language": "de",
+ "exams": {},
+ "course": {"attendance": false},
+ "sla": {"retrievals": 40, "focus_minutes": 60, "recap_by": "21:00"},
+ "mastery": {"half_life_days": 10, "prior_a": 0.5, "prior_b": 1.5, "solid": 0.8},
+ "srs_intervals_days": [0, 1, 2, 4, 8, 16],
+ "streak_min": {"retrievals": 25, "focus_minutes": 60},
+ "phases": [],
+ "day_plan": {},
+ "milestones": [],
+ "generation": {"max_candidates_per_run": 8}
+}

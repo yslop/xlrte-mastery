@@ -350,6 +350,7 @@ def test_render_always_embeds_the_briefing(tmp_path, monkeypatch):
     assert "# Briefing Test" in html
 
 
+@pytest.mark.skipif(not hasattr(__import__("time"), "tzset"), reason="time.tzset fehlt unter Windows")
 def test_engine_time_is_learner_time_not_process_time(monkeypatch):
     """Regression 08.10.: die Routine lief mit UTC, Zeitstempel und Datum wichen von Berlin ab."""
     import time

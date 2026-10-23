@@ -1,41 +1,53 @@
-# Pilot: XLRTE Mastery in two weeks
+# Pilot: XLRTE Mastery in one week
 
-Thank you for joining. You help make XLRTE Mastery better for many others. Expect **30 minutes of setup** and then
-**10–15 minutes a day**, as long as it is useful to you.
+Thank you for joining. This week XLRTE Mastery is **invite-only**. Afterwards it goes public for everyone, with your
+improvements in it. Please do not share the link until then.
+
+Effort: **30 minutes setup**, then **10–15 minutes a day**, and three short check-ins.
 
 ## What you get
 
-- A learning cockpit for your exam (or your own), with an honest forecast.
-- New drills every day from your pack and a daily recap in the evening.
-- A tutor prompt for your AI that works from your real progress.
+- A learning cockpit for your exam (or your own), with an honest pass forecast.
+- New practice questions every day from your pack, and an evening recap.
+- A tutor prompt for your AI that works from your real learning state.
 
 ## Setup (Mac, Windows, Linux)
 
 1. Install Python 3.9 or newer: <https://www.python.org/downloads/> (Mac: often already there, `python3 --version`).
-2. Get the repository: green **Code → Download ZIP** button on GitHub, unzip. Or with Git:
-   `git clone https://github.com/token8/xlrte-mastery.git`
-3. Start in the folder: Mac/Linux `./mastery`, Windows double-click `mastery.cmd`.
-4. The setup dialogue opens in your browser. Pick English or Deutsch at the top right. Keep "sample data" ticked to try it.
-5. Connect your AI: if you have a Claude, ChatGPT or Gemini subscription, choose that app. It also works without AI.
+2. Accept the GitHub invitation (email or <https://github.com/notifications>).
+3. Get the repository: green **Code → Download ZIP** button, unzip. Or with Git:
+   `git clone https://github.com/xlrte/xlrte-mastery.git`
+4. Start in the folder: Mac/Linux `./mastery`, Windows double-click `mastery.cmd`.
+5. The setup dialog opens in your browser. Pick Deutsch or English at the top right, keep "demo data" ticked.
+6. Connect your AI if you have a Claude, ChatGPT or Gemini subscription. It also works without AI.
 
-## Two weeks, one rhythm
+## The pilot week
 
-| Day | What you do |
-|---|---|
-| 1 | Set up, click around with sample data, first feedback (see below) |
-| 2–3 | Remove the sample data, add your own |
-| 4–10 | Use it daily, note anything odd right away as an issue |
-| 11–14 | Short closing feedback (5 questions) |
+| Day | What you do | Feedback |
+|---|---|---|
+| 1 | Set up, click around with the demo data | **Check-in 1:** `./mastery feedback` |
+| 2–3 | Remove the demo data, pick your exam or create your own pack, practise 15 minutes a day | **Check-in 2** on day 3 |
+| 4–6 | Use it daily, note anything odd as an issue right away | Bugs and ideas any time |
+| 7 | Look back: what should be better before the public release? | **Check-in 3 (closing)** |
 
 ## How to give feedback
 
-- **Quick:** GitHub → *Issues* → *Pilot feedback* (form, 2 minutes).
-- **Bugs:** *Issues* → *Report a bug*. Please reproduce with the sample data, never with your real data.
+`./mastery feedback` (Windows: `mastery.cmd feedback`) writes a short summary of counts and settings: version, system,
+language, type of AI connection, how many days you used it. **No names, companies, notes, questions or keys.** It is saved
+in `feedback/` and opens the pilot form on GitHub, already filled in. You read it, change it if you like, then submit.
+Nothing is sent automatically.
+
+- **Bugs:** *Issues → Bug report*. Please reproduce with the demo data, never with your real data.
 - **Ideas and questions:** *Discussions*.
-- **Improve it yourself:** issues labelled `good first issue` are meant for a first contribution. A pull request is enough;
-  see [CONTRIBUTING.md](../CONTRIBUTING.md).
+- **Improve it yourself:** issues labelled `good first issue`; a pull request is enough, see [CONTRIBUTING.en.md](../CONTRIBUTING.en.md).
+
+## What happens with your feedback
+
+Every evening of the pilot week the feedback is reviewed and sorted. Anything that blocks setup is fixed right away.
+After day 7 there is a summary in the pilot issue (anonymised), then version 0.2.0 and the public release. Contributors
+are named in the CHANGELOG if you wish.
 
 ## Your data
 
 Everything stays on your computer. Nobody sees your data, not even us. Never send screenshots with real names, companies
-or notes; the sample data is enough for any bug report.
+or notes; the demo data is enough for every bug report.

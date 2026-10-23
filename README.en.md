@@ -38,7 +38,7 @@ honestly how close you are to the pass mark.
 Requires Python 3.9 or newer.
 
 ```bash
-git clone https://github.com/token8/xlrte-mastery.git
+git clone https://github.com/xlrte/xlrte-mastery.git
 cd xlrte-mastery
 ./mastery                  # Windows: mastery.cmd
 ```

@@ -59,6 +59,7 @@ def apply(root, settings):
     ex.update({"name": name, "short": short, "booked": bool(a.get("booked")), "target_pct": int(a.get("target_pct") or 75)})
     if a.get("target_date"):
         ex["target_date"] = a["target_date"]
+    ex.setdefault("target_date", (today + datetime.timedelta(days=90)).isoformat())   # no date given (CLI): plan 90 days, change any time
     ex.setdefault("plan_start", today.isoformat())
     ex.setdefault("pass_pct", int(a.get("new_pass") or 65) if a.get("exam") == "new" else 65)
     cfg["phases"] = [{"name": M("Prüfungsvorbereitung", "Exam preparation"), "exam": exam, "from": today.isoformat(), "to": ex.get("target_date") or "2099-12-31",

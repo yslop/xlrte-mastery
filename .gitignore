@@ -19,3 +19,7 @@ _xlrte/notebooklm/*
 __pycache__/
 .pytest_cache/
 .DS_Store
+
+# Pilot-Zusammenfassungen (lokal)
+feedback/
+.venv/

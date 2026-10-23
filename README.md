@@ -40,7 +40,7 @@ Prognose sagt ehrlich, wie nah du an der Bestehensgrenze bist.
 Voraussetzung: Python 3.9 oder neuer.
 
 ```bash
-git clone https://github.com/token8/xlrte-mastery.git
+git clone https://github.com/xlrte/xlrte-mastery.git
 cd xlrte-mastery
 ./mastery                  # Windows: mastery.cmd
 ```

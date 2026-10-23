@@ -1,6 +1,6 @@
 # XLRTE Mastery · Prüfungen bestehen, Wissen behalten
 
-[English](README.en.md)
+[English](README.en.md) · Teil von [ylsop](https://github.com/ylsop): *why slop?* Werkzeuge für alle, die lieber gründlich als viel machen.
 
 **XLRTE Mastery ist ein lokales Lern-Cockpit für jede Prüfung.** Es misst, was du wirklich beherrschst, statt abzuhaken,
 was du gelesen hast: Jede Antwort ist ein Beleg, Wiederholung kommt dann, wenn du sonst vergessen würdest, und die
@@ -40,7 +40,7 @@ Prognose sagt ehrlich, wie nah du an der Bestehensgrenze bist.
 Voraussetzung: Python 3.9 oder neuer.
 
 ```bash
-git clone https://github.com/xlrte/xlrte-mastery.git
+git clone https://github.com/ylsop/xlrte-mastery.git
 cd xlrte-mastery
 ./mastery                  # Windows: mastery.cmd
 ```

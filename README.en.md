@@ -1,6 +1,6 @@
 # XLRTE Mastery · pass exams, keep the knowledge
 
-[Deutsch](README.md) · Part of [ylsop](https://github.com/ylsop): *why slop?* Tools for people who would rather do it well than do a lot.
+[Deutsch](README.md) · Part of [yslop](https://github.com/yslop): *why slop?* Tools for people who would rather do it well than do a lot.
 
 **XLRTE Mastery is a local learning cockpit for any exam.** It measures what you actually master instead of ticking off
 what you read: every answer is evidence, reviews come when you would otherwise forget, and the forecast tells you
@@ -38,7 +38,7 @@ honestly how close you are to the pass mark.
 Requires Python 3.9 or newer.
 
 ```bash
-git clone https://github.com/ylsop/xlrte-mastery.git
+git clone https://github.com/yslop/xlrte-mastery.git
 cd xlrte-mastery
 ./mastery                  # Windows: mastery.cmd
 ```

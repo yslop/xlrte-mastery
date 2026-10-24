@@ -2,6 +2,8 @@
 
 [Deutsch](README.md) · Part of [yslop](https://github.com/yslop): *why slop?* Tools for people who would rather do it well than do a lot.
 
+![Mastery in 25 seconds: honest forecast, weak-spot drill with source and “report question”, learning path, daily recap](docs/media/mastery_en.gif)
+
 **XLRTE Mastery is a local learning cockpit for any exam.** It measures what you actually master instead of ticking off
 what you read: every answer is evidence, reviews come when you would otherwise forget, and the forecast tells you
 honestly how close you are to the pass mark.

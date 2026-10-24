@@ -23,7 +23,7 @@ import urllib.parse
 import webbrowser
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
-DEFAULT_REPO = {"star": "yslop/xlrte-star", "mastery": "yslop/xlrte-mastery"}
+DEFAULT_REPO = {"star": "yslop/pitwall", "mastery": "yslop/xlrte-mastery"}
 
 
 def _read_json(path, default=None):
@@ -50,7 +50,7 @@ def repo_slug(prod):
             return m.group(1)
     except (OSError, subprocess.SubprocessError):
         pass
-    return DEFAULT_REPO.get(prod, "yslop/xlrte-star")
+    return DEFAULT_REPO.get(prod, "yslop/pitwall")
 
 
 def _system_name():
@@ -73,7 +73,7 @@ def environment(prod):
     except OSError:
         version = "?"
     return collections.OrderedDict([
-        ("Produkt / product", prod),
+        ("Produkt / product", {"star": "Pitwall", "mastery": "XLRTE Mastery"}.get(prod, prod)),
         ("Version", version),
         ("System", _system_name()),
         ("Python", platform.python_version()),

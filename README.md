@@ -2,6 +2,8 @@
 
 [English](README.en.md) · Teil von [yslop](https://github.com/yslop): *why slop?* Werkzeuge für alle, die lieber gründlich als viel machen.
 
+![Mastery in 25 Sekunden: ehrliche Prognose, Schwachstellen-Drill mit Quelle und „Frage melden“, Lernpfad, Tages-Recap](docs/media/mastery_de.gif)
+
 **XLRTE Mastery ist ein lokales Lern-Cockpit für jede Prüfung.** Es misst, was du wirklich beherrschst, statt abzuhaken,
 was du gelesen hast: Jede Antwort ist ein Beleg, Wiederholung kommt dann, wenn du sonst vergessen würdest, und die
 Prognose sagt ehrlich, wie nah du an der Bestehensgrenze bist.

@@ -1,1 +1,2 @@
 # glob  rule  # reason (mandatory)
+docs/media/*.gif  too_large  # Hero-GIFs nur aus erfundenen Demo-Daten (Alex Muster / Sam Beispiel), Einzelbilder vor dem Einbau geprüft

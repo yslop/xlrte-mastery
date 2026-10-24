@@ -1,5 +1,6 @@
 {
  "learner": "",
+ "feedback_repo": "yslop/xlrte-mastery",
  "language": "de",
  "exams": {},
  "course": {"attendance": false},

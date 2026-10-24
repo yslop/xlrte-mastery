@@ -869,6 +869,21 @@ function renderBreak() {
 function endPause() { if (!run || !run.pauseUntil) return; run.pausedMs += pauseCredit(run, Date.now()); run.pauseUntil = null; run.breaks[run.i] = true; renderRun(); }
 function reveal() { if (!run || !run.cards) return; $("#fBack").classList.remove("hide"); $("#fHint").classList.add("hide"); $("#fGrade").classList.remove("hide"); const fn = $("#fNote"); if (fn) { fn.classList.remove("hide"); $("#mnSave").onclick = () => { const it = run.list[run.i]; addEvent("setting", { ref: "mn." + it.id, value: $("#mnText").value.trim() }); toast("Eselsbrücke gespeichert"); }; } }
 function gradeCard(g) { const it = run.list[run.i]; addEvent("card", { ref: it.id, value: g, exam: state.exam }); run.answers.push({ it, ok: g >= 2 }); run.i++; renderRun(); }
+/* Quelle und Prüfstatus jeder Frage sichtbar machen; "Frage melden" öffnet ein vorausgefülltes GitHub-Issue (nur wenn config.feedback_repo gesetzt ist).
+   Übertragen werden nur Frage-ID, Prüfung, Lernziel, Fragetext und Optionen: nie die eigene Antwort, Zeiten oder Lernstand. */
+function srcLine(it) {
+  const s = String(it.src || "");
+  const origin = s.startsWith("xlrte-gen") ? "Täglich generiert aus deinen Begriffskarten" : s.startsWith("xlrte-pack") ? "Frage aus deinem Lernpaket"
+    : s.startsWith("xlrte") ? "Eigene XLRTE-Frage, keine Prüfungsfrage" : s ? "Eigene Frage" : "Ohne Quellenangabe";
+  const st = { approved: "geprüft", shadow: "im Test", candidate: "neu, noch nicht geprüft" }[it.status] || "";
+  return `<span>Quelle:</span> <span>${esc(origin)}</span>${st ? ` · <span>${esc(st)}</span>` : ""} · <span>ID ${esc(it.id)}</span>`;
+}
+function reportUrl(it) {
+  const repo = C.feedback_repo; if (!repo || !/^[\w.-]+\/[\w.-]+$/.test(repo)) return "";
+  const opts = (it.options || []).map((o, k) => `${String.fromCharCode(65 + k)}) ${o}`).join("\n");
+  const body = `**Frage-ID / question ID:** ${it.id}\n**Prüfung / exam:** ${it.exam || state.exam} · **Lernziel / objective:** ${it.lo || "–"}\n\n> ${String(it.q || "").slice(0, 600).replace(/\n/g, "\n> ")}\n\n${opts}\n\n**Was stimmt nicht? / What is wrong?** (falsche Lösung, unklar, veraltet, Tippfehler · wrong answer, unclear, outdated, typo)\n\n`;
+  return "https://github.com/" + repo + "/issues/new?labels=content&title=" + encodeURIComponent("Question " + it.id + ": ") + "&body=" + encodeURIComponent(body);
+}
 function answer(conf) {
   const it = run.list[run.i]; const multi = it.type === "multi";
   if (run.sel === null || run.done || (multi && run.sel.length !== it.answer.length)) return; run.done = true;
@@ -881,8 +896,8 @@ function answer(conf) {
   $$("#opts .opt").forEach(b => { const o = +b.dataset.o; if (right.includes(o)) b.classList.add("ok"); else if (picked.includes(o)) b.classList.add("no"); });
   $$("#conf button").forEach(x => x.disabled = true);
   const l = loById(it.lo);
-  $("#fb").innerHTML = `<div class="feedback ${ok ? "ok" : "no"}"><b>${run.mode === "vorab" ? (ok ? "Richtig – stark ohne Vorwissen" : "Noch nicht – genau dafür ist der Vorab-Test da") : ok ? (conf === "guess" ? "Richtig – aber geraten (zählt halb)" : "Richtig") : "Incident: falsch"}</b><br>${esc(whyMapped(it.why, run.order))}<div class="tiny muted" style="margin-top:6px">Lernziel ${esc(it.lo)}${it.book ? " · PMBOK 8 " + esc(it.book) : ""} · ${l.book ? "Buch §" + esc(l.book) : esc(ritaRef(l) || l.focus || "")}</div></div>
-    <div class="row" style="margin-top:10px"><button class="btn" id="next">Weiter <kbd>→</kbd></button>${it.status === "candidate" ? `<button class="btn ghost sm" data-rv="1">Frage ist gut</button><button class="btn ghost sm" data-rv="0">Frage verwerfen</button>` : ""}</div>`;
+  $("#fb").innerHTML = `<div class="feedback ${ok ? "ok" : "no"}"><b>${run.mode === "vorab" ? (ok ? "Richtig – stark ohne Vorwissen" : "Noch nicht – genau dafür ist der Vorab-Test da") : ok ? (conf === "guess" ? "Richtig – aber geraten (zählt halb)" : "Richtig") : "Incident: falsch"}</b><br>${esc(whyMapped(it.why, run.order))}<div class="tiny muted" style="margin-top:6px">Lernziel ${esc(it.lo)}${it.book ? " · PMBOK 8 " + esc(it.book) : ""}${(() => { const r = l.book ? "Buch §" + esc(l.book) : esc(ritaRef(l) || l.focus || ""); return r ? " · " + r : ""; })()}</div><div class="tiny muted" style="margin-top:2px">${srcLine(it)}</div></div>
+    <div class="row" style="margin-top:10px"><button class="btn" id="next">Weiter <kbd>→</kbd></button>${it.status === "candidate" ? `<button class="btn ghost sm" data-rv="1">Frage ist gut</button><button class="btn ghost sm" data-rv="0">Frage verwerfen</button>` : ""}${reportUrl(it) ? `<a class="btn ghost sm" href="${reportUrl(it)}" target="_blank" rel="noopener" title="Öffnet ein vorausgefülltes Issue auf GitHub. Deine Antwort wird nicht übertragen.">Frage melden</a>` : ""}</div>`;
   if (!ok && trapsOn() && state.exam === "pmp" && run.mode !== "vorab") { const tg = ((D.traps || {}).items || {})[it.id] || [];
     if (tg.length) { const lure = ((D.traps || {}).lures || {})[it.id] || {}; const hit = !multi && lure[run.sel] ? " Du hast die verlockende Option dieser Falle gewählt." : "";
       $("#fb").insertAdjacentHTML("beforeend", `<div class="tiny" style="margin-top:6px"><b>Falle:</b> ${tg.map(t => esc(trapName(t)) + " – " + esc(trapRule(t))).join(" · ")}${hit}</div>`); } }

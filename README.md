@@ -11,7 +11,6 @@ Prognose sagt ehrlich, wie nah du an der Bestehensgrenze bist.
 > Wissen gehört allen. Wer sich heute weiterbildet, muss schneller lernen als je zuvor, oft neben Job, Familie oder
 > Jobsuche. Mastery nimmt dir die Verwaltung ab, damit deine Zeit ins Verstehen geht.
 
-
 ## Was drin ist
 
 - **Jede Prüfung:** Wähle ein Lernpaket oder lege im Einrichtungs-Dialog deine eigene Prüfung an (Kategorien, Gewichte,

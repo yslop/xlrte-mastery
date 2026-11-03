@@ -1,0 +1,12 @@
+XLRTE Mastery installieren
+1. Doppelklick auf „XLRTE Mastery installieren.command“.
+   Beim ersten Mal fragt macOS nach, weil die App nicht von Apple signiert ist: Rechtsklick → Öffnen → Öffnen.
+2. Ordner wählen (Vorschlag: Dokumente/XLRTE Mastery). Die Einrichtung öffnet sich im Browser.
+3. Danach startest du Mastery mit Doppelklick auf „mastery“ in deinem Ordner oder öffnest XLRTE_Cockpit.html.
+Python oder andere Programme brauchst du nicht. Dein Lernstand bleibt in dem Ordner, den du wählst.
+
+Install XLRTE Mastery
+1. Double-click “XLRTE Mastery installieren.command”. The first time, macOS asks because the app is not signed by Apple: right-click → Open → Open.
+2. Choose a folder (suggested: Documents/XLRTE Mastery). Setup opens in your browser.
+3. Afterwards start Mastery by double-clicking “mastery” in your folder or open XLRTE_Cockpit.html.
+No Python or other software needed. Your learning progress stays in the folder you choose.

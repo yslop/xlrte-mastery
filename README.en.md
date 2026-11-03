@@ -37,7 +37,12 @@ honestly how close you are to the pass mark.
 
 ## Up and running in five minutes
 
-Requires Python 3.9 or newer.
+**Easiest: download an installer.** [Releases](https://github.com/yslop/xlrte-mastery/releases/latest) has
+`XLRTE-Mastery-…-mac-arm64.dmg` (Apple Silicon), `…-mac-intel.dmg`, `…-windows-setup.exe` and `…-linux-x64.tar.gz`. They
+bring their own Python; nothing to install first. The installers are not signed (yet): macOS asks the first time
+(right-click → Open), Windows shows "Windows protected your PC" (→ More info → Run anyway).
+
+**Or with Git and Python 3.9+.**
 
 ```bash
 git clone https://github.com/yslop/xlrte-mastery.git

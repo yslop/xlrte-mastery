@@ -39,7 +39,13 @@ Prognose sagt ehrlich, wie nah du an der Bestehensgrenze bist.
 
 ## In fünf Minuten startklar
 
-Voraussetzung: Python 3.9 oder neuer.
+**Am einfachsten: Installer laden.** Unter [Releases](https://github.com/yslop/xlrte-mastery/releases/latest) liegen
+`XLRTE-Mastery-…-mac-arm64.dmg` (Apple Silicon), `…-mac-intel.dmg`, `…-windows-setup.exe` und `…-linux-x64.tar.gz`. Sie
+bringen ihre eigene Python-Laufzeit mit; du brauchst nichts vorher zu installieren. Die Installer sind (noch) nicht
+signiert: macOS fragt beim ersten Öffnen nach (Rechtsklick → Öffnen), Windows zeigt „Der Computer wurde durch Windows
+geschützt“ (→ Weitere Informationen → Trotzdem ausführen).
+
+**Oder mit Git und Python 3.9+.**
 
 ```bash
 git clone https://github.com/yslop/xlrte-mastery.git

@@ -1,17 +1,26 @@
 #!/bin/sh
-# XLRTE Mastery: ./mastery            Tageslauf (beim ersten Mal: Einrichtungs-Dialog)
+# XLRTE Mastery: ./mastery            Tageslauf und Cockpit öffnen (beim ersten Mal: Einrichtungs-Dialog)
 #                ./mastery setup      Einrichtung erneut öffnen
 #                ./mastery feedback   anonyme Pilot-Zusammenfassung (wird nicht gesendet)
 #                ./mastery <befehl>   z. B. ./mastery status | render | check
 DIR="$(cd "$(dirname "$0")" && pwd)"
-PY="$(command -v python3 || command -v python)"
-[ -z "$PY" ] && { echo "Python 3.9+ fehlt: https://www.python.org/downloads/"; exit 1; }
+if [ -x "$DIR/runtime/bin/python3" ]; then PY="$DIR/runtime/bin/python3"     # Installer: eigene Laufzeit
+else PY="$(command -v python3 || command -v python)"; fi
+[ -z "$PY" ] && { echo "Python 3.9+ fehlt: https://www.python.org/downloads/ (oder den Installer aus den Releases nehmen)"; exit 1; }
+show() { { command -v open >/dev/null && open "$1"; } || { command -v xdg-open >/dev/null && xdg-open "$1"; } >/dev/null 2>&1 || true; }
 if [ "$1" = "feedback" ]; then shift; exec "$PY" "$DIR/setup/feedback.py" "$@"; fi
 if [ "$1" = "setup" ]; then shift; exec "$PY" "$DIR/setup/xlrte_setup.py" "$@"; fi
 if [ ! -f "$DIR/config/settings.json" ]; then
   echo "Erste Nutzung: die Einrichtung öffnet sich im Browser."
   "$PY" "$DIR/setup/xlrte_setup.py" || exit $?
+  [ -z "$1" ] && [ -f "$DIR/XLRTE_Cockpit.html" ] && show "$DIR/XLRTE_Cockpit.html"
   exit 0
 fi
+OPEN=""; [ $# -eq 0 ] && OPEN=1
 CMD="${1:-run}"; [ $# -gt 0 ] && shift
-"$PY" "$DIR/_xlrte/scripts/xlrte.py" "$CMD" "$@" && [ "$CMD" = "run" ] && echo "Cockpit: $DIR/XLRTE_Cockpit.html"
+"$PY" "$DIR/_xlrte/scripts/xlrte.py" "$CMD" "$@" || exit $?
+if [ "$CMD" = "run" ]; then
+  echo "Cockpit: $DIR/XLRTE_Cockpit.html"
+  [ -n "$OPEN" ] && show "$DIR/XLRTE_Cockpit.html"
+fi
+exit 0
